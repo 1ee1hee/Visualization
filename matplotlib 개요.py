@@ -88,3 +88,42 @@ plt.plot(y, x, label = 'plot3')
 plt.legend() # 범례
 plt.grid(True)
 plt.show()
+
+
+
+# 5. Figure에 하나의 axes 그리기
+# plt.gca() 사용
+axes = plt.gca()
+# axes 객체의 메소드를 이용해 그래프 그리고 설정하기
+axes.plot(x, y, label = 'line plot')
+axes.scatter(x, y, label = 'scatter')
+# 설정함수 - set_xxxx()
+axes.set_title('제목')
+axes.set_xlabel('X축')
+axes.set_ylabel('Y축')
+axes.grid(True)
+axes.legend()
+
+plt.show()
+
+
+
+# 6. 하나의 Figure에 여러개의 axes 그리기
+# figure.add_subplot()메소드 이용
+# figure 객체 조회
+fig = plt.figure(figsize = (10, 5))
+
+# figure에 axes를 추가
+ax1 = fig.add_subplot(1, 3, 1)
+ax2 = fig.add_subplot(1, 3, 2)
+ax3 = fig.add_subplot(1, 3, 3)
+
+ax1.plot(x, y)
+ax2.plot(x, y)
+ax3.scatter(x, y)
+
+ax1.grid(True)
+ax3.grid(True)
+
+plt.tight_layout()
+plt.show()
