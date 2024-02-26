@@ -127,3 +127,35 @@ ax3.grid(True)
 
 plt.tight_layout()
 plt.show()
+
+
+# 7. pyplot.subplots()
+fig, axes = plt.subplots(1, 2, figsize = (7, 3))
+# print(type(fig), type(axes), axes.shape)
+ax1, ax2 = axes
+print(type(ax1), type(ax2))
+
+ax1.plot(x, y)
+ax1.set_title('첫번째')
+
+axes[1].plot(x, y)
+axes[1].set_title('두번째')
+
+plt.show()
+
+
+# 8. 디자인 변경
+fig, axes = plt.subplots(2, 2, figsize = (7, 7))
+ax1, ax2, ax3, ax4 = axes.flatten()
+
+ax1.plot(x, y, color = 'red')
+ax1.set_title('1번')
+
+ax2.plot(y, x, c = 'green')
+ax2.set_title('2번')
+
+ax3.scatter(x, y, c = '0.5')
+ax3.set_title('3번')
+
+plt.tight_layout()
+plt.show()
